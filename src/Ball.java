@@ -21,9 +21,16 @@ public class Ball {
         g2.fillOval(x,y,size,size);
     }
 
-    public void move(){
+    public void move(double h, double w){
+        if(x-size>w)
+            speed *=-1;
+
+        if(y-size>h)
+            speed *=-1;
+
         x+=speed;
         y+=speed;
+
 
     }
 

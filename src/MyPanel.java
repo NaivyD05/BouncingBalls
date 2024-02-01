@@ -3,10 +3,10 @@ import java.awt.*;
 public class MyPanel extends JPanel{//allows you to inherted from other classes
 
     int xLoc = 300;
-    int xVal = 2;
+    int xVal = 1;
     int yLoc = 300;
 
-    int yVal = 2;
+    int yVal = 1;
 
     Ball myBall;
     public MyPanel(){
@@ -26,20 +26,7 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
 //        g.fillOval(xLoc,yLoc,20,20);//g is an object of the graphics class
 
         myBall.draw(g);
-        myBall.move();
-
-        if(xLoc<= getWidth()-20){
-            xVal = -2;
-        }
-        if(xLoc <= getHeight()-20)
-            xVal =2;
-
-
-        if(yLoc >= getHeight()-20)
-            yVal = -2;
-        if(yLoc <getHeight())
-            yVal = 2;
-
+        myBall.move(getHeight(),getWidth());
 
 
         g.setColor(Color.BLUE);
