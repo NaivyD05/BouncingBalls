@@ -6,12 +6,16 @@ public class Ball {
     private int speed;
     private Color color;
 
+    int rad = (int)(Math.random()*256);
+
+
+
     public Ball(int x, int y){
         this.x = x;
         this.y = y;
-        size = 10;
-        speed = 5;
-        color = Color.PINK;
+        size =(int)(Math.random()*30+10);
+        speed =(int)(Math.random()*9);
+        color = new Color(rad,rad,rad);
 
     }
 
@@ -22,11 +26,12 @@ public class Ball {
     }
 
     public void move(double h, double w){
-        if(x-size>w)
-            speed *=-1;
-
-        if(y-size>h)
-            speed *=-1;
+        if(x+size==w||y+size==0) {
+            speed *= -1;
+        }
+         else if(y+size==h||x+size==0){
+            speed *= -1;
+        }
 
         x+=speed;
         y+=speed;
