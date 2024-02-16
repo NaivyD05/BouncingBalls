@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 public class MyPanel extends JPanel{//allows you to inherted from other classes
 
     int radX = (int)(Math.random()*getWidth());
@@ -13,6 +16,21 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
     setBackground(Color.GREEN);
 
     myBall = new Ball(400,300);
+
+    //addding key listener moving an object left/right/updown
+        setFocusable(true);
+        addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            super.keyPressed(e);
+            System.out.println(e.getKeyCode());
+            int key = e.getKeyCode();
+
+            if(key==68){
+                System.out.println("moving right");
+            }
+        }
+    });
 
     }
 
@@ -33,8 +51,8 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
 
 
 
-        g.setColor(Color.BLUE);
-        g.drawString("Hello world", 150, 150);
+//        g.setColor(Color.BLUE);
+//        g.drawString("Hello world", 150, 150);
 
 
 

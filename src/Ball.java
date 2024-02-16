@@ -14,7 +14,7 @@ public class Ball {
         this.x = x;
         this.y = y;
         size =(int)(Math.random()*30+10);
-        speed =(int)(Math.random()*9);
+        speed =(int)(Math.random()*9+3);
         color = new Color(rad,rad,rad);
 
     }
