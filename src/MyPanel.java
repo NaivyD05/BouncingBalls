@@ -5,8 +5,8 @@ import java.awt.event.KeyEvent;
 
 public class MyPanel extends JPanel{//allows you to inherted from other classes
 
-    int radX = (int)(Math.random()*getWidth());
-    int radY = (int)(Math.random()*getHeight());
+    int radX = (int)(Math.random()*500);
+    int radY = (int)(Math.random()*500);
     int l = 300;
 
     int yVal = 1;
@@ -15,22 +15,23 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
     public MyPanel(){
     setBackground(Color.GREEN);
 
-    myBall = new Ball(400,300);
 
-    //addding key listener moving an object left/right/updown
-        setFocusable(true);
-        addKeyListener(new KeyAdapter() {
-        @Override
-        public void keyPressed(KeyEvent e) {
-            super.keyPressed(e);
-            System.out.println(e.getKeyCode());
-            int key = e.getKeyCode();
-
-            if(key==68){
-                System.out.println("moving right");
-            }
-        }
-    });
+    myBall = new Ball(radX,radY);
+//
+//    //addding key listener moving an object left/right/updown
+//        setFocusable(true);
+//        addKeyListener(new KeyAdapter() {
+//        @Override
+//        public void keyPressed(KeyEvent e) {
+//            super.keyPressed(e);
+//            System.out.println(e.getKeyCode());
+//            int key = e.getKeyCode();
+//
+//            if(key==68){
+//                System.out.println("moving right");
+//            }
+//        }
+//    });
 
     }
 
@@ -46,8 +47,14 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
 //        g.fillOval(xLoc,yLoc,20,20);//g is an object of the graphics class
 
 
+        radY = getHeight();
+        radX = getWidth();
+
             myBall.draw(g);
+
             myBall.move(getHeight(), getWidth());
+
+            myBall.getSpeed();
 
 
 
