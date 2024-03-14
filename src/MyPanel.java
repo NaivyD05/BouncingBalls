@@ -12,11 +12,14 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
     int yVal = 1;
 
     Ball myBall;
+    Ball[] balls = new Ball[20];
     public MyPanel(){
-    setBackground(Color.GREEN);
+        setBackground(Color.GREEN);
+        for(int i = 0;i<20;i++){
+            balls[i] = new Ball();
+        }
 
-
-    myBall = new Ball(radX,radY);
+        myBall = new Ball(radX,radY);
 //
 //    //addding key listener moving an object left/right/updown
 //        setFocusable(true);
@@ -46,22 +49,17 @@ public class MyPanel extends JPanel{//allows you to inherted from other classes
 //        g.setColor(Color.RED);
 //        g.fillOval(xLoc,yLoc,20,20);//g is an object of the graphics class
 
+        for(int i= 0;i<20;i++){
+            balls[i].draw(g);
+            balls[i].move(getHeight(), getWidth());
+        }
 
         radY = getHeight();
         radX = getWidth();
 
-            myBall.draw(g);
+        myBall.draw(g);
 
-            myBall.move(getHeight(), getWidth());
-
-            myBall.getSpeed();
-
-
-
-//        g.setColor(Color.BLUE);
-//        g.drawString("Hello world", 150, 150);
-
-
+        myBall.move(getHeight(), getWidth());
 
 
         try {
